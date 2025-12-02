@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💗</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #fff1f6, #ffe3ee, #fff6ff);
+        background-size: 300% 300%;
+        animation: bg 8s infinite alternate;
+        overflow: hidden;
+    }
+    @keyframes bg {
+        0% { background-position: 0 0; }
+        100% { background-position: 100% 100%; }
+    }
+
+    .center {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 90%;
+        max-width: 350px;
+        transition: 0.5s ease;
+    }
+
+    .card {
+        padding: 25px;
+        background: #ffffffcc;
+        border-radius: 25px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1),
+                    inset 4px 4px 10px #ffffffaa,
+                    inset -4px -4px 10px #d6d6d6aa;
+    }
+
+    .teddy {
+        width: 150px;
+        margin-bottom: 10px;
+        animation: float 2s infinite ease-in-out;
+    }
+
+    @keyframes float {
+        0%,100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    .btn {
+        padding: 12px 24px;
+        background: #d8799b;
+        color: white;
+        border-radius: 12px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 15px;
+        transition: 0.3s;
+    }
+    .btn:hover { transform: scale(1.05); }
+
+    /* Yes/No Buttons */
+    #yesNoBox { margin-top: 20px; }
+    #noBtn, #yesBtn {
+        width: 120px;
+        padding: 10px;
+        font-size: 17px;
+        border-radius: 12px;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+    }
+    #yesBtn { background: #ff84ac; color: white; }
+    #noBtn  { background: #c4c4c4; color: black; position: absolute; }
+
+    .finalMsg {
+        font-size: 24px;
+        color: #d73876;
+        font-weight: 600;
+        animation: pop 1.5s ease;
+        margin-bottom: 10px;
+    }
+    @keyframes pop {
+        from { transform: scale(0.4); opacity: 0; }
+        to   { transform: scale(1); opacity: 1; }
+    }
+
+    /* Floating hearts */
+    .heart {
+        position: absolute;
+        font-size: 28px;
+        opacity: 0.7;
+        animation: floatUp 6s infinite ease-in-out;
+    }
+    @keyframes floatUp {
+        0% { transform: translateY(40px) scale(0.7); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: translateY(-500px) scale(1.3); opacity: 0; }
+    }
+</style>
+</head>
+<body>
+
+<!-- Music -->
+<audio autoplay loop>
+    <source src="https://files.catbox.moe/2g9q3y.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Floating hearts -->
+<script>
+setInterval(() => {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "💗";
+    h.style.left = Math.random()*100 + "vw";
+    h.style.animationDuration = (4 + Math.random()*4) + "s";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 6000);
+}, 900);
+</script>
+
+<!-- PAGE 1 -->
+<div id="page1" class="center">
+    <div class="card">
+        <img src="https://i.gifer.com/fy2R.gif" class="teddy">
+        <h2>HEY 💗</h2>
+        <p>Can we talk for a moment? There's something<br>cute & important I want to tell you.</p>
+        <button class="btn" onclick="goPage2()">Continue 💕</button>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="center" style="opacity:0; pointer-events:none;">
+    <img src="https://i.gifer.com/fy2R.gif" class="teddy">
+    <h2>IAM GETTING SCARD AND SORRY 🥺💗</h2>
+        <h2>DO U WANT KNOW IT 🥺💗</h2>
+
+    <div id="yesNoBox">
+        <button id="yesBtn" onclick="finalPage()">Yes 💖</button>
+        <button id="noBtn" onmouseenter="runAway()">No 😭</button>
+    </div>
+</div>
+
+<!-- PAGE 3 -->
+<div id="finalPage" class="center" style="opacity:0; pointer-events:none;">
+    <div class="finalMsg">UR SIMPLY WASTE💗🐻✨</div>
+    <img src="https://i.gifer.com/2J12.gif" class="teddy">
+</div>
+
+<script>
+function goPage2() {
+    page1.style.opacity = 0;
+    setTimeout(() => {
+        page1.style.display = "none";
+        page2.style.opacity = 1;
+        page2.style.pointerEvents = "all";
+    }, 500);
+}
+
+// No button runs away
+function runAway() {
+    const x = Math.random() * (window.innerWidth - 150);
+    const y = Math.random() * (window.innerHeight - 150);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+// Final page
+function finalPage() {
+    page2.style.opacity = 0;
+    setTimeout(() => {
+        page2.style.display = "none";
+        finalPageDiv.style.opacity = 1;
+        finalPageDiv.style.pointerEvents = "all";
+    }, 500);
+}
+
+const finalPageDiv = document.getElementById("finalPage");
+</script>
+
+</body>
+</html>
