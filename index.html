@@ -62,7 +62,6 @@
     }
     .btn:hover { transform: scale(1.05); }
 
-    /* Yes/No Buttons */
     #yesNoBox { margin-top: 20px; }
     #noBtn, #yesBtn {
         width: 120px;
@@ -88,7 +87,6 @@
         to   { transform: scale(1); opacity: 1; }
     }
 
-    /* Floating hearts */
     .heart {
         position: absolute;
         font-size: 28px;
@@ -104,12 +102,10 @@
 </head>
 <body>
 
-<!-- Music -->
 <audio autoplay loop>
     <source src="https://files.catbox.moe/2g9q3y.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Floating hearts -->
 <script>
 setInterval(() => {
     const h = document.createElement("div");
@@ -122,7 +118,6 @@ setInterval(() => {
 }, 900);
 </script>
 
-<!-- PAGE 1 -->
 <div id="page1" class="center">
     <div class="card">
         <img src="https://i.gifer.com/fy2R.gif" class="teddy">
@@ -132,7 +127,6 @@ setInterval(() => {
     </div>
 </div>
 
-<!-- PAGE 2 -->
 <div id="page2" class="center" style="opacity:0; pointer-events:none;">
     <img src="https://i.gifer.com/fy2R.gif" class="teddy">
     <h2>IAM GETTING SCARD AND SORRY 🥺💗</h2>
@@ -144,7 +138,6 @@ setInterval(() => {
     </div>
 </div>
 
-<!-- PAGE 3 -->
 <div id="finalPage" class="center" style="opacity:0; pointer-events:none;">
     <div class="finalMsg">UR SIMPLY WASTE💗🐻✨</div>
     <img src="https://i.gifer.com/2J12.gif" class="teddy">
@@ -160,7 +153,6 @@ function goPage2() {
     }, 500);
 }
 
-// No button runs away
 function runAway() {
     const x = Math.random() * (window.innerWidth - 150);
     const y = Math.random() * (window.innerHeight - 150);
@@ -168,7 +160,6 @@ function runAway() {
     noBtn.style.top = y + "px";
 }
 
-// Final page
 function finalPage() {
     page2.style.opacity = 0;
     setTimeout(() => {
